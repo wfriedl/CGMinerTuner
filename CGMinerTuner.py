@@ -155,8 +155,13 @@ class CGTuner:
          self.report()
          self.api.setClock(self.device, GPUInfo['GPU Clock'])
          self.api.setMemClock(self.device, GPUInfo['Memory Clock'])
+      except KeyboardInterrupt:
+         print("Keyboard Interrupt Received.")
+         self.report()
+         pass
       except Exception as e:
          print('Exception occured: {0}'.format(e))
+         self.report()
          exit(-2)
 
 
